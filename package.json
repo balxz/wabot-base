@@ -1,0 +1,22 @@
+{
+  "name": "self",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "bálxzzy? SH TEAM",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@whiskeysockets/baileys": "^6.7.9",
+    "axios": "^1.7.9",
+    "cheerio": "^1.0.0",
+    "human-readable": "^0.2.1",
+    "moment-timezone": "^0.5.47",
+    "jimp": "latest",
+    "node-fetch": "^3.3.2"
+  }
+}
