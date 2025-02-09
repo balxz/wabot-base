@@ -1,4 +1,4 @@
-    require(process.cwd() + "/cnfigs")
+require(process.cwd() + "/cnfigs")
 
 const fs = require("fs")
 const axios = require("axios")
@@ -53,8 +53,10 @@ module.exports = client = async (client, m, chatUpdate, store) => {
     const Tolak = [botNumber, ...kontributor, ...global.owner].map(v => v.replace(/[^0-9]/g, "") + "@s.whatsapp.net").includes(m.sender)
     const isCmd = body.startsWith(prefix)
    
-    //const command = body.slice(1).trim().split(/ +/).shift().toLowerCase()
-    const command = body.replace(prefix, '').trim().split(/ +/).shift().toLowerCase()
+    const command = body.slice(1).trim().split(/ +/).shift().toLowerCase()
+
+    // no prefix
+    //const command = body.replace(prefix, '').trim().split(/ +/).shift().toLowerCase()
 
     const args = body.trim().split(/ +/).slice(1)
     const pushname = m.pushName || "No Name"
@@ -267,7 +269,7 @@ module.exports = client = async (client, m, chatUpdate, store) => {
         if (!text) return kntol("what npm do you want to search?")
         await reaction(m.chat, "🍃")
         let c = await NPM_STALK(text).catch(e => {
-          return kntol("haha npm name not found.")
+          return kntol("npm name not found.")
         })
         if (c && c.data) {
           let o = c.data
@@ -474,10 +476,10 @@ ${u.caption_vid || "No caption"}`
         }
         break
         
-        case "a": {
-          client.relayMessage(m.chat, {requestPhoneNumberMessage: {}},{})
-         }
-        break
+        //case "a": {
+        // client.relayMessage(m.chat, {requestPhoneNumberMessage: {}},{})
+        // }
+        //  break
         
         case "eval": {
             if (!Tolak) return
@@ -507,7 +509,7 @@ ${u.caption_vid || "No caption"}`
         break
       
       default:
-
+            /** other 😹 **/
 
     }
   } catch (err) {
@@ -518,7 +520,7 @@ ${u.caption_vid || "No caption"}`
 let file = require.resolve(__filename)
 require("fs").watchFile(file, () => {
   require("fs").unwatchFile(file)
-  console.log("file" + __filename + " updated!")
+  console.log("file" + __filename + "  updated!")
   delete require.cache[file]
   require(file)
 })
