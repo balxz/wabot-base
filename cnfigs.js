@@ -24,7 +24,7 @@ require("fs").watchFile(file, () => {
   console.log("file " + __filename + " updated!")
   delete require.cache[file]
   require(file)
-})
+});
 
 /*
    * by balzz
